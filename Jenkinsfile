@@ -16,9 +16,15 @@ pipeline {
         stage('Run Tests') {
             steps {
                 // Run the tests first to generate data for Jacoco and JUnit
-                bat 'mvn clean test' // For Windows agents
+                bat 'mvn clean test jacoco:prepare-agent'
             }
         }
+        stage('Check Coverage File') {
+            steps {
+                bat 'if exist target\\jacoco.exec echo Jacoco exec file exists'
+            }
+        }
+
         stage('Code Coverage') {
             steps {
                 // Generate Jacoco report after the tests have run

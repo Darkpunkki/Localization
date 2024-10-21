@@ -8,7 +8,8 @@ WORKDIR /app
 COPY pom.xml /app/
 COPY src /app/src/
 
-RUN mvn clean package
+# Build the Maven project without running tests (since tests are handled by Jenkins)
+RUN mvn clean package -DskipTests
 
 # Use a smaller OpenJDK image to run the JAR
 FROM openjdk:17-jdk-slim
