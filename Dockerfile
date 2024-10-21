@@ -8,7 +8,6 @@ WORKDIR /app
 COPY pom.xml /app/
 COPY src /app/src/
 
-
 RUN mvn clean package
 
 # Use a smaller OpenJDK image to run the JAR
