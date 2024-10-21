@@ -37,7 +37,7 @@
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
-                        <phase>initialize</phase>
+                        <phase>initialize</phase> <!-- Ensure agent is attached early -->
                     </execution>
                     <!-- Generate code coverage report after tests run -->
                     <execution>
@@ -57,6 +57,10 @@
                 <version>3.2.5</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
+                    <includes>
+                        <include>**/*Test.java</include> <!-- Ensure the correct test classes are picked -->
+                    </includes>
+                    <printSummary>true</printSummary> <!-- Print detailed test summaries -->
                 </configuration>
             </plugin>
 
