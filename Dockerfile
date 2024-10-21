@@ -8,8 +8,8 @@ WORKDIR /app
 COPY pom.xml /app/
 COPY src /app/src/
 
-# Build the Maven project and create the JAR file
-RUN mvn clean package -DskipTests
+
+RUN mvn clean package
 
 # Use a smaller OpenJDK image to run the JAR
 FROM openjdk:17-jdk-slim

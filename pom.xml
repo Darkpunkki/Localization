@@ -55,7 +55,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
                 <configuration>
-                    <encoding>UTF-8</encoding> <!-- Ensure Surefire uses UTF-8 -->
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
 
@@ -79,7 +79,6 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <!-- Specify the fully qualified Main class -->
                             <mainClass>LocalizedGreeting</mainClass>
                         </manifest>
                     </archive>
