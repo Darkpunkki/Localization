@@ -38,6 +38,14 @@ public class LocalizedGreetingTest {
     }
 
     @Test
+    public void testJapaneseGreeting() {
+        Locale locale = new Locale("ja", "JP");
+        ResourceBundle messages = ResourceBundle.getBundle("Messages", locale);
+        String greeting = messages.getString("greeting");
+        assertEquals("良い一日", greeting);
+    }
+
+    @Test
     public void testInvalidChoiceDefaultsToEnglish() {
         Locale locale = new Locale("invalid", "LOCALE"); // Simulate invalid locale
         ResourceBundle messages = ResourceBundle.getBundle("Messages", Locale.US);
