@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -10,6 +11,8 @@ public class LocalizedGreeting {
         System.out.println("1. English");
         System.out.println("2. French");
         System.out.println("3. Spanish");
+        System.out.println("4. Farsi");
+        System.out.println("5. Japanese");
 
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
@@ -26,6 +29,12 @@ public class LocalizedGreeting {
             case 3:
                 locale = new Locale("es", "ES");
                 break;
+            case 4:
+                locale = new Locale("fa", "IR");
+                break;
+            case 5:
+                locale = new Locale("ja", "JP");
+                break;
             default:
                 System.out.println("Invalid choice. Defaulting to English.");
                 locale = new Locale("en", "US");
@@ -33,7 +42,7 @@ public class LocalizedGreeting {
         }
 
         // Load the resource bundle for the selected locale
-        ResourceBundle messages = ResourceBundle.getBundle("MessagesBundle", locale);
+        ResourceBundle messages = ResourceBundle.getBundle("Messages", locale);
 
         // Display the localized greeting message
         System.out.println(messages.getString("greeting"));
